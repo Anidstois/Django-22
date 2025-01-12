@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 3</title>
+</head>
+<body>
+    <h1>Page 3</h1>
+    {% if user.is_authenticated %}
+        <p>Добро пожаловать, {{ user.username }}! Только для авторизованных пользователей.</p>
+    {% else %}
+        <p>Для доступа к этой странице необходимо войти.</p>
+    {% endif %}
+</body>
+</html>

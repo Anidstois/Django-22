@@ -1,18 +1,18 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Page
+from django.shortcuts import render
+from django.contrib.flatpages.models import FlatPage
 
 def page1_view(request):
-    page = Page.objects.get(id=1)
-    return render(request, 'page1.html', {'page': page})
+    flatpage = FlatPage.objects.get(url='/page1/')
+    return render(request, 'myapp/page1.html', {'flatpage': flatpage})
 
 def page2_view(request):
-    page = Page.objects.get(id=2)
-    return render(request, 'page2.html', {'page': page})
+    flatpage = FlatPage.objects.get(url='/page2/')
+    return render(request, 'myapp/page2.html', {'flatpage': flatpage})
 
 def page3_view(request):
-    page = Page.objects.get(id=3)
-    return render(request, 'page3.html', {'page': page})
+    flatpage = FlatPage.objects.get(url='/page3/')
+    return render(request, 'myapp/page3.html', {'flatpage': flatpage})
 
 
 @login_required

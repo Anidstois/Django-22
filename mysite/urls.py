@@ -15,12 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from myapp import views
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # Страница администратора
-    path('', views.page1_view, name='page1'),  # Пример подключения представления
-    path('page2/', views.page2_view, name='page2'),  # Вторая страница
-    path('page3/', views.page3_view, name='page3'),  # Третья страница
+    path('admin/', admin.site.urls),  # Админ-панель
+    path('', include('myapp.urls')),  # Включаем маршруты из моего приложения (myapp)
 ]
+
+
+
+
+
+
+
+
